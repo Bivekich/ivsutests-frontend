@@ -79,6 +79,7 @@ onMounted(() => {
 }
 
 .banner__title {
+  min-height: 50px;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   position: relative;
