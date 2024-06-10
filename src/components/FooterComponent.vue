@@ -41,18 +41,21 @@
   background-color: #343a40;
   color: #fff;
   padding: 2rem 1rem;
+  text-align: center;
 }
 
 .footer__content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .footer__section {
   flex: 1;
-  min-width: 200px;
+  max-width: 300px;
   margin: 1rem 0;
 }
 

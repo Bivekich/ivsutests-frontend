@@ -55,7 +55,7 @@ onMounted(() => {
         <div class="advantage">Преимущество 2</div>
         <div class="advantage">Преимущество 3</div>
       </div>
-      <button class="banner__button">Что умеем</button>
+      <a href="#about-us" class="banner__button">О нас</a>
     </div>
   </section>
 </template>
