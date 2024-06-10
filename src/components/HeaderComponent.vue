@@ -74,15 +74,15 @@ import { RouterLink } from 'vue-router'
 
 .header__search button {
   position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 0;
+  top: 0;
+  bottom: 0;
   padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
   color: #fff;
   background-color: #007bff;
   border: none;
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -107,5 +107,43 @@ import { RouterLink } from 'vue-router'
 .header__auth button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__search form {
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .header__auth {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__logo-text {
+    font-size: 1.25rem;
+  }
+
+  .header__search input {
+    padding: 0.5rem 3.5rem 0.5rem 0.5rem;
+  }
+
+  .header__search button {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .header__auth button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
 }
 </style>

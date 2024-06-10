@@ -84,4 +84,31 @@ onMounted(() => {
   font-weight: bold;
   margin: 0;
 }
+
+@media (max-width: 768px) {
+  .statistics__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .statistics__item {
+    width: 100%;
+    max-width: 300px;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics__item {
+    padding: 1.5rem;
+  }
+
+  .statistics__item h3 {
+    font-size: 1.25rem;
+  }
+
+  .statistics__item p {
+    font-size: 1.5rem;
+  }
+}
 </style>

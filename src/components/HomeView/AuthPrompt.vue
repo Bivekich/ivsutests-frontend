@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <section class="auth-prompt">
@@ -6,8 +8,10 @@
       <h2>Все наши сервисы предоставляются бесплатно!</h2>
       <p>Они будут доступны Вам после авторизации.</p>
       <div class="auth-prompt__buttons">
-        <button class="auth-prompt__button">Зарегистрироваться</button>
-        <button class="auth-prompt__button">Войти</button>
+        <RouterLink to="register"
+          ><button class="auth-prompt__button">Зарегистрироваться</button></RouterLink
+        >
+        <RouterLink to="login"><button class="auth-prompt__button">Войти</button></RouterLink>
       </div>
     </div>
   </section>
@@ -60,5 +64,45 @@
 .auth-prompt__button:hover {
   background-color: #0056b3;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .auth-prompt h2 {
+    font-size: 1.75rem;
+  }
+
+  .auth-prompt p {
+    font-size: 1rem;
+  }
+
+  .auth-prompt__button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-prompt {
+    padding: 2rem 1rem;
+  }
+
+  .auth-prompt h2 {
+    font-size: 1.5rem;
+  }
+
+  .auth-prompt p {
+    font-size: 0.875rem;
+  }
+
+  .auth-prompt__button {
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 0.75rem;
+  }
+
+  .auth-prompt__buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 </style>

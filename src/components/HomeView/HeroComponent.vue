@@ -71,6 +71,7 @@ onMounted(() => {
   background-position: center;
   color: white;
   text-align: center;
+  padding: 2rem 1rem;
 }
 
 .banner__content {
@@ -123,5 +124,39 @@ onMounted(() => {
 .banner__button:hover {
   background-color: #f0f0f0;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .banner__title {
+    font-size: 2rem;
+  }
+
+  .banner__button {
+    font-size: 0.875rem;
+  }
+
+  .banner__advantages .advantage {
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .banner__title {
+    font-size: 1.5rem;
+  }
+
+  .banner__button {
+    font-size: 0.75rem;
+  }
+
+  .banner__advantages {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .banner__advantages .advantage {
+    flex: 0 0 calc(50% - 1rem);
+    margin: 0.5rem;
+  }
 }
 </style>

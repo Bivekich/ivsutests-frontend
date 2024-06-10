@@ -94,4 +94,30 @@
 .footer__bottom a:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer__section {
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer__section p {
+    font-size: 0.875rem;
+  }
+
+  .footer__bottom p {
+    font-size: 0.875rem;
+  }
+}
 </style>
