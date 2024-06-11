@@ -9,7 +9,7 @@ let currentPhraseIndex = 0
 
 async function fetchBannerData() {
   try {
-    const response = await axios.get('http://localhost:3000/api/banner')
+    const response = await axios.get('https://ivsutests-server.vercel.app/api/banner')
     const bannerData = response.data
     phrases.value = bannerData.titles
     advantages.value = bannerData.features
