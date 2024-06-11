@@ -1,10 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import axios from 'axios'
 
-const phrases = ref(['Фраза 1', 'Фраза 2', 'Фраза 3'])
-
+const phrases = ref<string[]>([])
+const advantages = ref<string[]>([])
 const titleText = ref('')
 let currentPhraseIndex = 0
+
+async function fetchBannerData() {
+  try {
+    const response = await axios.get('http://localhost:3000/api/banner')
+    const bannerData = response.data
+    phrases.value = bannerData.titles
+    advantages.value = bannerData.features
+    typeWriter(phrases.value[currentPhraseIndex], 0)
+  } catch (error) {
+    console.error('Ошибка при выборке данных баннера:', error)
+  }
+}
 
 function typeWriter(text: string, index: number) {
   if (index < text.length) {
@@ -40,7 +53,7 @@ function nextPhrase() {
 }
 
 onMounted(() => {
-  typeWriter(phrases.value[currentPhraseIndex], 0)
+  fetchBannerData()
 })
 </script>
 
@@ -51,9 +64,9 @@ onMounted(() => {
         {{ titleText }}
       </h1>
       <div class="banner__advantages">
-        <div class="advantage">Преимущество 1</div>
-        <div class="advantage">Преимущество 2</div>
-        <div class="advantage">Преимущество 3</div>
+        <div v-for="(advantage, index) in advantages" :key="index" class="advantage">
+          {{advantage}}
+        </div>
       </div>
       <a href="#about-us" class="banner__button">О нас</a>
     </div>
