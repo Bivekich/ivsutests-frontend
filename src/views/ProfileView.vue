@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, onMounted} from "vue";
-import {useUserStore} from "@/stores/user";
-import {useRouter} from "vue-router";
+import { computed, onMounted } from 'vue'
+import { useUserStore } from '@/stores/user'
+import { useRouter } from 'vue-router'
 
 const userStore = useUserStore()
 const router = useRouter()
@@ -30,14 +30,13 @@ onMounted(() => {
   <div class="profile">
     <h2 class="profile__title">Профиль пользователя</h2>
     <div v-if="user" class="profile__info">
-      <p><strong>Email:</strong> {{user.email}}</p>
-      <p><strong>Роль:</strong>  {{user.role}}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Роль:</strong> {{ user.role }}</p>
     </div>
-    <div v-else class="profile__loading">
-      Загрузка...
-    </div>
+    <div v-else class="profile__loading">Загрузка...</div>
     <button class="profile__button" @click="logout">Выйти</button>
-    <router-link to="/student-tests" class="profile__link">Решенные тесты</router-link>
+    <router-link v-if="user &&(user.role === 'student' || user.role === 'teacher' || user.role === 'admin')" to="/student-tests" class="profile__link">Решенные тесты</router-link>
+    <router-link v-if="user &&(user.role === 'teacher' || user.role === 'admin')" to="/create-test" class="profile__link">Создать тест</router-link>
   </div>
 </template>
 

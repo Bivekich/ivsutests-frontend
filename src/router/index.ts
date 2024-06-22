@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from "@/views/HomeView.vue";
-import LoginView from "@/views/LoginView.vue";
-import RegisterView from "@/views/RegisterView.vue";
-import ProfileView from "@/views/ProfileView.vue";
-import {useUserStore} from "@/stores/user";
-
+import HomeView from '@/views/HomeView.vue'
+import LoginView from '@/views/LoginView.vue'
+import RegisterView from '@/views/RegisterView.vue'
+import ProfileView from '@/views/ProfileView.vue'
+import CreateTestView from '@/views/CreateTestView.vue'
+import { useUserStore } from '@/stores/user'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,14 +28,20 @@ const router = createRouter({
       path: '/profile',
       name: 'profile',
       component: ProfileView,
-      meta: {requiresAuth: true}
+      meta: { requiresAuth: true }
     },
+    {
+      path: '/create-test',
+      name: 'create-test',
+      component: CreateTestView,
+      meta: { requiresAuth: true }
+    }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   const userStore = useUserStore()
-  if (to.matched.some(record => record.meta.requiresAuth) && !userStore.token) {
+  if (to.matched.some((record) => record.meta.requiresAuth) && !userStore.token) {
     next('/login')
   } else {
     next()

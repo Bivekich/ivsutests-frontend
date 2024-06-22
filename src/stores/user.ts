@@ -34,7 +34,7 @@ export const useUserStore = defineStore('user', {
     },
     async login(email: string, password: string) {
       try {
-        const response = await axios.post('http://localhost:3000/api/auth/login', {
+        const response = await axios.post('https://ivsutests-server.vercel.app/api/auth/login', {
           email,
           password
         })
@@ -67,7 +67,7 @@ export const useUserStore = defineStore('user', {
     async createTest(title: string, questions: any[]) {
       try {
         const response = await axios.post(
-          'http://localhost:3000/api/test/teacher/tests',
+          'https://ivsutests-server.vercel.app/api/test/teacher/tests',
           { title, questions },
           {
             headers: {

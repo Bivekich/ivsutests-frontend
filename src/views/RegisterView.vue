@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import {ref} from 'vue'
-import {useRouter} from 'vue-router'
-import {useUserStore} from "@/stores/user";
-
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 
 const email = ref('')
 const password = ref('')
@@ -25,10 +24,22 @@ const register = async () => {
   <div class="register">
     <form class="register__form" @submit.prevent="register">
       <h2 class="register__title">Регистрация</h2>
-      <input v-model="email" class="register__input" type="email" placeholder="Введите почту" required>
-      <input v-model="password" class="register__input" type="password" placeholder="Введите пароль" required>
+      <input
+        v-model="email"
+        class="register__input"
+        type="email"
+        placeholder="Введите почту"
+        required
+      />
+      <input
+        v-model="password"
+        class="register__input"
+        type="password"
+        placeholder="Введите пароль"
+        required
+      />
       <button class="register__button" type="submit">Зарегистрироваться</button>
-      <p v-if="message" class="register__message">{{message}}</p>
+      <p v-if="message" class="register__message">{{ message }}</p>
     </form>
   </div>
 </template>

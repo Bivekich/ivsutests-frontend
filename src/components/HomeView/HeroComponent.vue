@@ -65,7 +65,7 @@ onMounted(() => {
       </h1>
       <div class="banner__advantages">
         <div v-for="(advantage, index) in advantages" :key="index" class="advantage">
-          {{advantage}}
+          {{ advantage }}
         </div>
       </div>
       <a href="#about-us" class="banner__button">О нас</a>
