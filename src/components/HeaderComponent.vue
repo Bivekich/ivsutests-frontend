@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router'
+import {useUserStore} from "@/stores/user";
+
+const userStore = useUserStore()
+
+const isAuthenticated = computed(() => !!userStore.token)
 </script>
 
 <template>
@@ -17,7 +23,10 @@ import { RouterLink } from 'vue-router'
       </form>
     </div>
     <div class="header__auth">
-      <RouterLink to="/login">
+      <RouterLink v-if="isAuthenticated" to="/profile">
+        <button>Профиль</button>
+      </RouterLink>
+      <RouterLink v-else to="/login">
         <button>Войти</button>
       </RouterLink>
     </div>
